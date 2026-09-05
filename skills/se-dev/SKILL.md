@@ -80,6 +80,17 @@ internals with the other.
 - [se-client-plugin-template](https://github.com/CometWorks/client-plugin-template) — client-only plugin.
 - [se-server-plugin-template](https://github.com/CometWorks/server-plugin-template) — client + Magnetar server plugin (`ClientPlugin`, `ServerPlugin`, `Shared`). For **Torch** plugin, base it on template's `last-torch-compatible` tag, not `main`.
 
+## Generic wisdom
+
+- Stop and alert if the free disk space drops below 10GB on any partition you work on.
+- Avoid using long timeouts. Be conscious on the wall clock time spent on completing tasks.
+- To avoid wasting time, use monitoring scripts to poll for progress frequently, for example every few seconds.
+- Do not use inference for monitoring, only read the output and react when relevant events happen.
+- Always collect all evidence (logs, core dump, traceback) immediately, since log rotation and core dump cleanup may erase them.
+- Operating system temporary folders (like /tmp or %TEMP%) may not be preserved over reboots, do not store anything important there which you may want to retrieve later
+- On Linux the /tmp folder may consume memory (tmpfs), therefore do not store large files there.
+- Consult a Fable or Astra sub-agent if you need deep planning or facing a difficult question/issue.
+
 ## Remarks
 
-Original source of these skills: https://github.com/CometWorks/skills
+- Original source of these skills: https://github.com/CometWorks/skills
